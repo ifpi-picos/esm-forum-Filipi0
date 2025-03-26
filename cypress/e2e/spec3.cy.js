@@ -18,3 +18,4 @@ describe('Teste E2E: Cadastro de resposta', () => {
     cy.contains('Resposta automática via Cypress').should('exist');
   });
 });
+//
