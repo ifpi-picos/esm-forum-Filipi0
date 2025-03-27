@@ -3,6 +3,7 @@ const repositorio_memoria = require('../repositorio/repositorio_memoria.js');
 
 beforeEach(() => {
   modelo.reconfig_repositorio(repositorio_memoria);
+  repositorio_memoria.limpar();
 });
 
 test('Testando banco de dados vazio', async () => {

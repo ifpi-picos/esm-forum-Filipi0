@@ -23,12 +23,12 @@ function recuperar_num_respostas(id_pergunta) {
 }
 
 function recuperar_todas_respostas(id_pergunta) {
-  return respostas[id_pergunta] || [];
+  return (respostas[id_pergunta] || []).map(texto => ({ texto }));
 }
 
 function criar_pergunta(texto, id_usuario) {
   const nova = {
-    id_pergunta: perguntas.length + 1,
+    id_pergunta: perguntas.length > 0 ? perguntas[perguntas.length - 1].id_pergunta + 1 : 1,
     texto,
     id_usuario
   };
@@ -42,11 +42,17 @@ function criar_resposta(id_pergunta, texto) {
   respostas[id_pergunta].push(texto);
 }
 
+function limpar() {
+  perguntas = [];
+  respostas = {};
+}
+
 module.exports = {
   recuperar_todas_perguntas,
   recuperar_pergunta,
   recuperar_num_respostas,
   recuperar_todas_respostas,
   criar_pergunta,
-  criar_resposta
+  criar_resposta,
+  limpar // ← exportando a função de reset
 };
