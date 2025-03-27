@@ -4,10 +4,6 @@ const repositorio_memoria = require('../repositorio/repositorio_memoria.js');
 
 beforeEach(() => {
   modelo.reconfig_repositorio(repositorio_memoria);
-  bd.reconfig('./bd/esmforum-teste.db');
-  // limpa dados de todas as tabelas
-  bd.exec('delete from perguntas', []);
-  bd.exec('delete from respostas', []);
 });
 
 test('Testando banco de dados vazio', () => {

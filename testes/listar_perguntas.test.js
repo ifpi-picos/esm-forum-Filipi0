@@ -4,8 +4,8 @@ const repositorio_memoria = require('../repositorio/repositorio_memoria.js');
 // reconfigura o modelo para usar o repositório em memória
 modelo.reconfig_repositorio(repositorio_memoria);
 
-test('Testando listar três perguntas com seus respectivos números de respostas', () => {
-  const perguntas = modelo.listar_perguntas();
+test('Testando listar três perguntas com seus respectivos números de respostas',async() => {
+  const perguntas = await modelo.listar_perguntas();
 
   expect(perguntas.length).toBe(3);
   expect(perguntas[0].texto).toBe('Qual a capital de MG?');
